@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{scsnowman}
+\usepackage{amsmath}
+\makeqedsnowman
+
+
+\title{Assignment \#3}
+\author{Matthew McDougall - 30170482}
+
+\begin{document}
+\maketitle
+
+\section*{Question 1}
+Let $A = \{1, 2, 3, 4, 5\}$ and let $B = \{6, 7, 8, 9\}$. \newline
+Prove or disprove the following statements.
+\begin{enumerate}[label=\textbf{\alph*.}]
+    
+    \item For all functions $f : A \rightarrow B$, there exists a function $g : B \rightarrow A$ so that $g \circ f = I_A$
+    \paragraph*{Solution.} This statement is false. The negation of the statement is: There exists a function $f : A \rightarrow B$ so that for all functions $g : B \rightarrow A$, $g \circ f \neq I_A$.
+
+    \begin{proof}
+        Let $f = \{(1, 6), (2, 6), (3, 6), (4, 6)\}$. Suppose $g$ is a function $g : B \rightarrow A$. Argue by contradiction: suppose $g \circ f = I_A$. Then, $g(f(1)) = g(6) = 1$ and $g(f(2)) = g(6) = 2$, so $g$ must have elements $(6,1)$ and $(6,2)$. Then, $g$ is not a function, since $6$ does not have a unique element. But $g$ is a function, this is a contradiction, so the original claim cannot be true. Therefore, $g \circ f \neq I_A$.
+    \end{proof}
+
+    \item For all functions $f : A \rightarrow B$, there exists a function $g : B \rightarrow A$ so that $f \circ g = I_B$
+    \paragraph*{Solution.} This statement is false. The negation of the statement is: There exists a function $f : A \rightarrow B$ so that for all functions $g : B \rightarrow A$, $f \circ g \neq I_B$.
+
+    \begin{proof}
+        Let $f = \{(1, 6), (2, 6), (3, 6), (4, 6)\}$. Suppose $g$ is a function $g : B \rightarrow A$. Argue by contradiction: suppose $f \circ g = I_B$. Then, $f(g(7)) = 7$, but $7 \not\in Im(f)$, so $f(g(7)) \neq 7$. This is a contradiction, so the original claim cannot be true. Therefore, $f \circ g \neq I_B$.
+        
+        Therefore, $g \circ f \neq I_A$.
+    \end{proof}
+
+    \item There exist functions $f : A \rightarrow B$ and $g : B \rightarrow A$ so that $g \circ f = I_A$
+    \paragraph*{Solution.} This statement is false. The negation of the statement is: For all functions $f : A \rightarrow B$ and $g : B \rightarrow A$, $g \circ f \neq I_A$.
+
+    \begin{proof}
+        Suppose functions $f : A \rightarrow B$, $g : B \rightarrow A$. Argue by contradiction: suppose $g \circ f = I_A$. Then, $g(f(x)) = x$ for all $x \in A$.
+    \end{proof}
+
+    \item There exist functions $f : A \rightarrow B$ and $g : B \rightarrow A$ so that $f \circ g = I_B$
+    \paragraph*{Solution.} This statement is true.
+
+    \begin{proof}
+        Let function $f : A \rightarrow B$ be defined by $$f = \{(1,6), (2,7), (3,8), (4,9), (5,9)\}$$
+        and let the function $g : B \rightarrow A$ be defined by $$g = \{(6,1), (7,2), (8,3), (9,4)\}$$
+        Then $$f \circ g = \{(6, 6), (7, 7), (8, 8), (9, 9)\} = I_B$$
+        Where $f : A \rightarrow B$ and $g : B \rightarrow A$ so that $f \circ g = I_B$.
+    \end{proof}
+
+\end{enumerate}
+    
+
+
+
+
+
+\section*{Question 2}
+Prove or disprove each of the following statements.
+\begin{enumerate}[label=\textbf{\alph*.}]
+
+\item For every nonempty set $A$, if $f$ is a function from $A$ to $A$ so that $f \circ f = I_A$, then $f$ is one-to-one and onto.
+\paragraph*{Solution.} This statement is true.
+
+\begin{proof}
+    Suppose $A$ is a nonempty set. Suppose that $f : A \rightarrow A$ and $f \circ f = I_A$. Then, for all $x \in A$, $f(f(x)) = x$. Suppose we have elements $a, b \in A$ such that $f(a) = f(b)$. Then, $f(f(a)) = f(f(b))$, and therefore $a = b$, so $f$ must be one-to-one. Now suppose $c \in A$. Let $d \in A$, $d = f(c)$. Then, $f(d) = f(f(c)) = c$, so $f$ must be onto.
+\end{proof}
+
+\item For every nonempty set $A$, if $f$ is a one-to-one and onto function from $A$ to $A$, then $f \circ f = I_A$.
+\paragraph*{Solution.} This statement is false. The negation of the statement is: There exists nonempty set $A$ where function $f : A \rightarrow A$ is one-to-one and onto, but $f \circ f \neq I_A$.
+
+\begin{proof}
+    Let $A = \{1, 2, 3\}$. Now, let $f = {(1, 2), (2, 3), (3, 1)}$. Observe that the function is one-to-one and onto. But, $f \circ f = \{(1, 3), (2, 1), (3, 2)\} \neq \{(1, 1), (2, 2), (3, 3)\} = I_A$.
+\end{proof}
+
+
+\item There exists a function $f$ from $A$ to $A$ where $A = \{1, 2, 3, 4\}$ so that $f \circ f = I_A$ and $f(x) \neq x$ for all $x \in A$.
+\paragraph*{Solution.} This statement is true. 
+
+\begin{proof}
+    Let $f = \{(1,4), (2,3), (3,2), (4,1)\}$. Then $$f \circ f = \{(1,1), (2,2), (3,3), (4,4), (5,5)\} = I_A$$ And $1 \neq 4, 2 \neq 3, 3 \neq 2, 4 \neq 1$, so $\forall x \in A, f(x) \neq x$.
+\end{proof}
+
+
+\item There exists a function $f$ from $A$ to $A$ where $A = \{1, 2, 3, 4, 5\}$ so that $f \circ f = I_A$ and $f(x) \neq x$ for all $x \in A$.
+\paragraph*{Solution.} This statement is false. The negation of the statement is: For all functions $f$ from $A$ to $A$ where $A = \{1, 2, 3, 4, 5\}$, $f \circ f \neq I_A$ or $f(x) = x$.
+
+\begin{proof}
+    
+\end{proof}
+
+\item For parts (c) and (d), if such a function exists, count the number of such functions. Give a detailed recipe and simplify your answer to a number.
+\paragraph*{Solution.} One recipe for such a function in part (c) is:
+\begin{enumerate}
+    \item Choose a pair of numbers (such that f(a) = b and f(b) = a) ($4\choose2$ ways).
+    \item Choose the other pair of numbers (1 way). THIS DOESNT INCLUDE IDENTIYTY
+\end{enumerate}
+So there are 
+\begin{align*}
+    4\choose2 &= \frac{4!}{2!(4-2)!}\\
+    &= \frac{4 \cdot 3 \cdot 2 \cdot 1}{(2 \cdot 1)(2 \cdot 1)}\\
+    &= 3 \cdot 2 \\
+    &= 6 
+\end{align*}
+such functions.
+
+\end{enumerate}
+
+
+
+
+
+
+\section*{Question 3}
+
+Let $f : \mathbb{R} \rightarrow \mathbb{R}$ be the function given by $f(x) = \lfloor 2x \rfloor - x$, for all $x \in \mathbb{R}$.
+
+\begin{enumerate}[label=\textbf{\alph*.}]
+
+\item Prove that for all $x \in \mathbb{R}$, $\lfloor 2x \rfloor = \lfloor x \rfloor + \lfloor x + \frac{1}{2} \rfloor$.
+\begin{proof}
+    Suppose $x \in \mathbb{R}$. By definition of floor, $\lfloor x \rfloor \leq x < \lfloor x + 1 \rfloor$.
+\end{proof}
+
+
+\item Prove that $f$ is one-to-one.
+
+
+\item Prove that $f$ is onto.
+
+
+\end{enumerate}
+
+\end{document}
